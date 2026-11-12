@@ -1,0 +1,216 @@
+{
+  "name": "PixLite Mk3",
+  "type": "WebSocket Client",
+  "path": "Hardware",
+  "version": "0.0.8",
+  "description": "Draft PixLite Mk3 scene and playlist control using the built-in WebSocket Client.",
+  "hasInput": true,
+  "hasOutput": true,
+  "hideDefaultCommands": true,
+  "defaults": {
+    "serverPath": "",
+    "useSecureConnection": false,
+    "autoAdd": false,
+    "protocol": "Direct"
+  },
+  "hideDefaultParameters": [
+    "serverPath",
+    "useSecureConnection",
+    "connected",
+    "autoAdd",
+    "protocol",
+    "messageStructure",
+    "customSeparator",
+    "firstValueIsTheName"
+  ],
+  "parameters": {
+    "Device address": {
+      "type": "String",
+      "default": ""
+    },
+    "Operator password variable": {
+      "type": "String",
+      "default": "PIXLITE_OPERATOR_PASSWORD"
+    }
+  },
+  "values": {
+    "Ready": {
+      "type": "Boolean",
+      "default": false,
+      "readOnly": true
+    },
+    "Connection": {
+      "type": "String",
+      "default": "Not connected",
+      "readOnly": true
+    },
+    "Last command": {
+      "type": "String",
+      "default": "None",
+      "readOnly": true
+    },
+    "Mode": {
+      "type": "String",
+      "default": "Unknown",
+      "readOnly": true
+    },
+    "Playback operation": {
+      "type": "String",
+      "default": "Unknown",
+      "readOnly": true
+    },
+    "Media": {
+      "type": "String",
+      "default": "",
+      "readOnly": true
+    },
+    "Media type": {
+      "type": "String",
+      "default": "",
+      "readOnly": true
+    },
+    "Paused": {
+      "type": "Boolean",
+      "default": false,
+      "readOnly": true
+    },
+    "Pause known": {
+      "type": "Boolean",
+      "default": false,
+      "readOnly": true
+    },
+    "Controller error": {
+      "type": "String",
+      "default": "",
+      "readOnly": true
+    },
+    "Playlist item": {
+      "type": "Integer",
+      "default": -1,
+      "readOnly": true
+    },
+    "Status age": {
+      "type": "Float",
+      "default": -1,
+      "readOnly": true
+    },
+    "Available media": {
+      "type": "String",
+      "default": "",
+      "readOnly": true,
+      "multiline": true
+    }
+  },
+  "scripts": [
+    "moduleScript.js"
+  ],
+  "commands": {
+    "Verify connection": {
+      "callback": "verifyConnection"
+    },
+    "Refresh status": {
+      "callback": "refreshStatus"
+    },
+    "Refresh media": {
+      "callback": "refreshMedia"
+    },
+    "Play scene": {
+      "callback": "playScene",
+      "parameters": {
+        "Filename": {
+          "type": "String",
+          "default": ""
+        },
+        "Fade ms": {
+          "type": "Integer",
+          "min": 0,
+          "max": 60000,
+          "default": 0
+        }
+      }
+    },
+    "Play playlist": {
+      "callback": "playPlaylist",
+      "parameters": {
+        "Filename": {
+          "type": "String",
+          "default": ""
+        },
+        "Fade ms": {
+          "type": "Integer",
+          "min": 0,
+          "max": 60000,
+          "default": 0
+        }
+      }
+    },
+    "Pause": {
+      "callback": "pausePlayback",
+      "parameters": {
+        "Fade ms": {
+          "type": "Integer",
+          "min": 0,
+          "max": 60000,
+          "default": 0
+        }
+      }
+    },
+    "Resume": {
+      "callback": "resumePlayback",
+      "parameters": {
+        "Fade ms": {
+          "type": "Integer",
+          "min": 0,
+          "max": 60000,
+          "default": 0
+        }
+      }
+    },
+    "Next playlist item": {
+      "callback": "nextPlaylistItem",
+      "parameters": {
+        "Fade ms": {
+          "type": "Integer",
+          "min": 0,
+          "max": 60000,
+          "default": 0
+        }
+      }
+    },
+    "Live": {
+      "callback": "selectLive",
+      "parameters": {
+        "Fade ms": {
+          "type": "Integer",
+          "min": 0,
+          "max": 60000,
+          "default": 0
+        }
+      }
+    },
+    "Blank": {
+      "callback": "selectBlank",
+      "parameters": {
+        "Fade ms": {
+          "type": "Integer",
+          "min": 0,
+          "max": 60000,
+          "default": 0
+        }
+      }
+    },
+    "Freeze": {
+      "callback": "selectFreeze",
+      "parameters": {
+        "Fade ms": {
+          "type": "Integer",
+          "min": 0,
+          "max": 60000,
+          "default": 0
+        }
+      }
+    }
+  },
+  "url": "https://github.com/JamesAdvatek/PixLite-Mk3-Chataigne",
+  "downloadURL": "https://github.com/JamesAdvatek/PixLite-Mk3-Chataigne/archive/refs/heads/main.zip"
+}
